@@ -20,8 +20,7 @@ export default function ExploreView({ active, onArticle, showToast }: Props) {
     if (!active) return
     setLoading(true)
     Promise.allSettled([
-      getExplore('', 1, 30).then(d => setArticles((d.articles || []).map(a => normArticle(a as Record<string, unknown>) as unknown as Article))),
-      getMarkets(false).then(d => setMarkets(d.stocks || {})),
+getExplore('', 1, 30).then(d => setArticles((d.articles || []).map(a => normArticle(a as unknown as Record<string, unknown>) as unknown as Article))),      getMarkets(false).then(d => setMarkets(d.stocks || {})),
     ]).finally(() => setLoading(false))
   }, [active])
 
