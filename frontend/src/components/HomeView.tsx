@@ -51,7 +51,7 @@ export default function HomeView({ active, auth, onArticle, showToast }: Props) 
       else if (chip !== 'all') data = await getExplore(chip, p, 30)
       else data = await getFeed(p, 20)
 
-      const arts = (data.articles || []).map(a => normArticle(a as Record<string, unknown>) as unknown as Article)
+      const arts = (data.articles || []).map(a => normArticle(a as unknown as Record<string, unknown>) as unknown as Article)
       setArticles(prev => reset ? arts : [...prev, ...arts])
       setHasMore(Boolean(data.has_more))
       setPage(p + 1)
