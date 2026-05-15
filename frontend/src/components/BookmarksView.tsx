@@ -19,8 +19,7 @@ export default function BookmarksView({ active, auth, onArticle, showToast }: Pr
     setLoading(true)
     if (auth.token) {
       getBookmarks()
-        .then(d => setArticles((d.articles || []).map(a => normArticle(a as Record<string, unknown>) as unknown as Article)))
-        .catch(() => showToast('⚠️ Failed to load bookmarks'))
+.then(d => setArticles((d.articles || []).map(a => normArticle(a as unknown as Record<string, unknown>) as unknown as Article)))        .catch(() => showToast('⚠️ Failed to load bookmarks'))
         .finally(() => setLoading(false))
     } else {
       setLoading(false)
