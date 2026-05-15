@@ -84,8 +84,8 @@ export default function HomeView({ active, auth, onArticle, showToast }: Props) 
   const restArticles = articles.filter(a => !shownIds.has(a.id))
 
   function openArt(a: Article) {
-    onArticle(normArticle(a as unknown as Record<string, unknown>) as unknown as Article)
-    interact(a.id, 'read', a.category, 0).catch(() => {})
+onArticle(normArticle(a as unknown as Record<string, unknown>) as unknown as Article)
+  interact(a.id, 'read', a.category, 0).catch(() => {})
   }
 
   return (
